@@ -1,23 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import {
-  ArrowRight,
-  Bath,
-  BedDouble,
-  Brain,
-  Building2,
-  CalendarDays,
-  Handshake,
-  Heart,
-  Home,
-  KeyRound,
-  MessageCircle,
-  Maximize,
-  Phone,
-  Search,
-  ShieldCheck,
-  Star,
-  Users,
-} from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 
 import heroImg from "@/assets/hero-apartment.jpg";
 import prop1 from "@/assets/prop-1.jpg";
@@ -30,17 +12,17 @@ import agentImg from "@/assets/agent.jpg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Nira Brokers — Marketplace inmobiliario con IA" },
+      { title: "Nira Brokers — Patrimonio y legado inmobiliario" },
       {
         name: "description",
         content:
-          "Compra, alquila e invierte en propiedades con asesoramiento humano e inteligencia artificial. Departamentos, casas y oficinas verificadas.",
+          "Curaduría de propiedades excepcionales en Buenos Aires. Inversión, compra y alquiler con asesoramiento humano e inteligencia artificial.",
       },
-      { property: "og:title", content: "Nira Brokers — Marketplace inmobiliario con IA" },
+      { property: "og:title", content: "Nira Brokers — Patrimonio y legado inmobiliario" },
       {
         property: "og:description",
         content:
-          "Propiedades verificadas, asesores expertos y un asistente inteligente que encuentra tu próximo hogar.",
+          "Activos inmobiliarios curados, análisis de rentabilidad y un concierge inteligente que encuentra tu próxima propiedad.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -49,46 +31,76 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const nav = ["Inicio", "Propiedades", "Nosotros", "Inversiones", "Servicios", "Blog", "Contacto"];
+const nav = ["Propiedades", "Inversiones", "Nosotros", "Contacto"];
 
-const pillars = [
-  { icon: Users, title: "Atención personalizada", text: "Cada cliente recibe asesoramiento según sus necesidades reales." },
-  { icon: Brain, title: "Tecnología inteligente", text: "Usamos IA para acelerar la búsqueda y mejorar cada recomendación." },
-  { icon: ShieldCheck, title: "Propiedades verificadas", text: "Trabajamos con información actualizada y oportunidades reales." },
-  { icon: Handshake, title: "Acompañamiento integral", text: "Desde la primera consulta hasta la firma de la escritura." },
+const properties = [
+  {
+    img: prop1,
+    ref: "8829",
+    title: "Residencia Hollywood",
+    place: "Palermo Hollywood, CABA",
+    m2: "85 m²",
+    unit: "USD 2.880 / m²",
+    price: "USD 245.000",
+    tag: "Venta",
+  },
+  {
+    img: prop2,
+    ref: "7410",
+    title: "Ático Belgrano R",
+    place: "Belgrano R, CABA",
+    m2: "60 m²",
+    unit: "2 amb. · reciclado",
+    price: "USD 650 / mes",
+    tag: "Alquiler",
+  },
+  {
+    img: prop3,
+    ref: "6155",
+    title: "Casa Nordelta",
+    place: "Barrio privado, Tigre",
+    m2: "240 m²",
+    unit: "USD 2.417 / m²",
+    price: "USD 580.000",
+    tag: "Venta",
+  },
+  {
+    img: prop4,
+    ref: "5023",
+    title: "Oficina Madero",
+    place: "Puerto Madero, CABA",
+    m2: "60 m²",
+    unit: "Renta est. +7,1%",
+    price: "USD 210.000",
+    tag: "Inversión",
+  },
 ];
 
 const steps = [
-  { icon: MessageCircle, text: "Contanos qué necesitás." },
-  { icon: Search, text: "Analizamos todas las propiedades disponibles." },
-  { icon: Home, text: "Recibí únicamente las mejores opciones." },
-  { icon: CalendarDays, text: "Coordinamos la visita con un asesor." },
-  { icon: KeyRound, text: "Te acompañamos hasta concretar la operación." },
-];
-
-const properties = [
-  { img: prop1, tag: "Venta", title: "Departamento en Palermo Hollywood", beds: 2, baths: 2, m2: 85, price: "USD 245.000" },
-  { img: prop2, tag: "Alquiler", title: "Departamento en Belgrano R", beds: 1, baths: 1, m2: 60, price: "USD 650 / mes" },
-  { img: prop3, tag: "Venta", title: "Casa en Barrio Privado Nordelta", beds: 4, baths: 3, m2: 240, price: "USD 580.000" },
-  { img: prop4, tag: "Venta", title: "Oficina en Puerto Madero", beds: 1, baths: 1, m2: 60, price: "USD 210.000" },
+  ["Paso 01", "Escucha", "Definimos criterio, presupuesto y horizonte de la operación."],
+  ["Paso 02", "Curaduría", "Filtramos el mercado con analítica propia y visita técnica."],
+  ["Paso 03", "Due diligence", "Auditoría legal y documental antes de cualquier reserva."],
+  ["Paso 04", "Cierre", "Negociación, escritura y gestión posterior del activo."],
 ];
 
 function Index() {
   return (
-    <main className="bg-background text-foreground">
+    <main className="min-h-screen bg-background text-foreground">
       {/* Header */}
-      <header className="absolute inset-x-0 top-0 z-20">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-6">
-          <div className="text-center leading-none">
-            <div className="font-display text-2xl tracking-[0.35em] text-foreground">NIRA</div>
-            <div className="mt-1 text-[0.55rem] tracking-[0.4em] text-muted-foreground">BROKERS</div>
+      <header className="border-b border-border">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-6 lg:px-12">
+          <div className="leading-none">
+            <div className="font-display text-2xl tracking-[0.3em]">NIRA</div>
+            <div className="mt-1 text-[0.55rem] font-bold tracking-[0.4em] text-muted-foreground">
+              BROKERS
+            </div>
           </div>
-          <nav className="hidden items-center gap-7 lg:flex">
-            {nav.map((n, i) => (
+          <nav className="hidden items-center gap-10 md:flex">
+            {nav.map((n) => (
               <a
                 key={n}
-                href="#"
-                className={`text-sm transition-colors hover:text-primary ${i === 0 ? "border-b border-primary pb-1 text-primary" : "text-foreground/80"}`}
+                href="#propiedades"
+                className="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-muted-foreground transition-colors hover:text-foreground"
               >
                 {n}
               </a>
@@ -96,225 +108,177 @@ function Index() {
           </nav>
           <a
             href="#asesor"
-            className="hidden items-center gap-2 rounded-full border border-primary/40 bg-card/70 px-5 py-2.5 text-sm text-primary backdrop-blur transition-colors hover:bg-primary hover:text-primary-foreground sm:inline-flex"
+            className="hidden items-center gap-2 border border-foreground px-6 py-3 text-[0.65rem] font-bold uppercase tracking-[0.2em] transition-colors hover:bg-foreground hover:text-background sm:inline-flex"
           >
-            <MessageCircle className="size-4" /> Hablar con el asesor IA
+            Concierge IA
           </a>
         </div>
       </header>
 
       {/* Hero */}
-      <section className="relative overflow-hidden bg-cream pt-28">
-        <div className="mx-auto grid max-w-7xl items-center gap-10 px-6 pb-16 lg:grid-cols-2">
-          <div className="max-w-xl">
-            <h1 className="font-display text-5xl leading-[1.05] md:text-6xl">
-              Encontrar la <span className="text-primary">propiedad ideal</span> ya no depende de la
-              suerte. Depende de la <span className="text-primary">inteligencia</span>.
-            </h1>
-            <p className="mt-6 max-w-md text-sm leading-relaxed text-muted-foreground">
-              En Nira Brokers combinamos la experiencia de nuestros asesores con inteligencia
-              artificial para ayudarte a encontrar la propiedad ideal de forma más rápida, precisa y
-              segura.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <a
-                href="#propiedades"
-                className="inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3 text-sm text-primary-foreground transition-opacity hover:opacity-90"
-              >
-                Comenzar ahora <ArrowRight className="size-4" />
-              </a>
-              <a
-                href="#propiedades"
-                className="inline-flex items-center rounded-full border border-border bg-card px-7 py-3 text-sm transition-colors hover:bg-secondary"
-              >
-                Ver propiedades
-              </a>
-            </div>
-            <div className="mt-10 flex flex-wrap gap-8">
-              {[
-                { icon: Users, big: "+1.250", small: "Clientes satisfechos" },
-                { icon: Building2, big: "+8 años", small: "de experiencia" },
-                { icon: Star, big: "4.9", small: "en valoraciones" },
-              ].map((s) => (
-                <div key={s.small} className="flex items-center gap-3">
-                  <span className="flex size-10 items-center justify-center rounded-full bg-secondary text-primary">
-                    <s.icon className="size-4" />
-                  </span>
-                  <span>
-                    <span className="block text-sm font-semibold">{s.big}</span>
-                    <span className="block text-xs text-muted-foreground">{s.small}</span>
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="relative">
-            <img
-              src={heroImg}
-              alt="Living de un departamento moderno con vista a la ciudad"
-              width={1600}
-              height={1200}
-              className="h-[520px] w-full rounded-sm object-cover"
-            />
-            <div
-              id="asesor"
-              className="mx-auto -mt-24 w-[92%] rounded-xl border border-border bg-card p-5 shadow-xl lg:absolute lg:right-6 lg:top-1/2 lg:mt-0 lg:w-80 lg:-translate-y-1/2"
-            >
-              <div className="flex items-center gap-3 border-b border-border pb-3">
-                <img
-                  src={agentImg}
-                  alt="Asesora de Nira Brokers"
-                  width={1000}
-                  height={800}
-                  loading="lazy"
-                  className="size-10 rounded-full object-cover"
-                />
-                <div>
-                  <p className="text-sm font-semibold">Asesor IA</p>
-                  <p className="flex items-center gap-1 text-xs text-primary">
-                    <span className="size-1.5 rounded-full bg-primary" /> Nira Brokers
-                  </p>
-                </div>
+      <section className="mx-auto max-w-7xl px-6 py-16 lg:px-12 lg:py-24">
+        <div className="grid grid-cols-12 items-start gap-y-16 md:gap-x-12">
+          <div className="col-span-12 flex flex-col space-y-16 lg:col-span-7">
+            <div className="space-y-8">
+              <div className="flex items-center gap-4">
+                <span className="rule-ochre" />
+                <span className="label-eyebrow">Inmobiliaria boutique · Buenos Aires</span>
               </div>
-              <p className="mt-4 rounded-lg bg-secondary p-3 text-xs leading-relaxed text-secondary-foreground">
-                Hola, soy el asistente inteligente de Nira Brokers. Estoy para ayudarte a encontrar
-                la propiedad ideal. ¿Por dónde querés empezar?
+              <h1 className="font-display text-7xl leading-[0.85] tracking-tighter md:text-9xl">
+                Patrimonio
+                <br />
+                <span className="ml-8 italic text-primary md:ml-16">y legado.</span>
+              </h1>
+              <p className="max-w-md text-xl font-light leading-relaxed text-muted-foreground">
+                Curaduría de activos excepcionales. Inversiones con visión de futuro, arquitectura
+                atemporal y acompañamiento de principio a fin.
               </p>
-              <div className="mt-3 space-y-2">
-                {[
-                  { icon: Home, t: "Quiero comprar" },
-                  { icon: KeyRound, t: "Quiero alquilar" },
-                  { icon: Building2, t: "Soy inversor" },
-                  { icon: MessageCircle, t: "Solo quiero consultar" },
-                ].map((o) => (
-                  <button
-                    key={o.t}
-                    type="button"
-                    className="flex w-full items-center gap-2 rounded-md border border-border bg-background px-3 py-2 text-left text-xs transition-colors hover:border-primary hover:text-primary"
+            </div>
+
+            <div id="asesor" className="relative max-w-2xl">
+              <div className="absolute inset-y-0 -left-4 w-[2px] bg-primary" />
+              <div className="flex flex-col items-center gap-6 border-y border-r border-border bg-card p-4 md:flex-row md:p-6">
+                <div className="w-full flex-1">
+                  <label
+                    htmlFor="q"
+                    className="mb-2 block text-[0.6rem] font-bold uppercase tracking-[0.2em] text-muted-foreground"
                   >
-                    <o.icon className="size-3.5 text-primary" /> {o.t}
-                  </button>
-                ))}
-              </div>
-              <div className="mt-4 flex items-center gap-2 rounded-full border border-border px-3 py-2">
-                <input
-                  placeholder="Escribí tu mensaje..."
-                  className="w-full bg-transparent text-xs outline-none placeholder:text-muted-foreground"
-                />
-                <span className="flex size-7 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground">
-                  <ArrowRight className="size-3.5" />
-                </span>
+                    Consultar con el concierge IA
+                  </label>
+                  <input
+                    id="q"
+                    type="text"
+                    placeholder="Busco un dúplex con terraza en Palermo…"
+                    className="w-full bg-transparent font-display text-lg italic outline-none placeholder:text-foreground/25"
+                  />
+                </div>
+                <button
+                  type="button"
+                  className="w-full bg-foreground px-10 py-4 text-[0.65rem] font-bold uppercase tracking-[0.2em] text-background transition-colors hover:bg-primary md:w-auto"
+                >
+                  Explorar
+                </button>
               </div>
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* Pillars */}
-      <section className="border-y border-border bg-card">
-        <div className="mx-auto grid max-w-7xl gap-10 px-6 py-16 lg:grid-cols-[1fr_2fr]">
-          <div>
-            <p className="label-eyebrow">Mucho más que una inmobiliaria</p>
-            <h2 className="mt-4 font-display text-4xl leading-tight">
-              Tecnología, experiencia y personas <span className="text-primary">a tu servicio</span>
-            </h2>
-            <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-              Comprar o vender una propiedad es una de las decisiones más importantes de la vida.
-              Por eso unimos personas, experiencia y tecnología para que tomes decisiones con
-              información clara y acceso a las mejores oportunidades del mercado.
-            </p>
+          <div className="relative col-span-12 pt-12 lg:col-span-5 lg:pt-0">
+            <div className="relative aspect-[3/4] overflow-hidden bg-muted">
+              <img
+                src={heroImg}
+                alt="Interior de un departamento contemporáneo con luz natural"
+                width={1600}
+                height={2000}
+                className="size-full object-cover grayscale transition-all duration-1000 hover:grayscale-0"
+              />
+              <div className="absolute bottom-0 right-0 border-l border-t border-border bg-background p-8 md:p-10">
+                <div className="space-y-6">
+                  <div>
+                    <span className="mb-1 block text-[0.6rem] font-bold uppercase tracking-[0.2em] text-muted-foreground">
+                      Localización
+                    </span>
+                    <span className="font-display text-xl">Palermo Chico, CABA</span>
+                  </div>
+                  <div className="grid grid-cols-2 gap-8">
+                    <div>
+                      <span className="mb-1 block text-[0.6rem] font-bold uppercase tracking-[0.2em] text-muted-foreground">
+                        Precio
+                      </span>
+                      <span className="text-sm font-semibold">USD 3.400 / m²</span>
+                    </div>
+                    <div>
+                      <span className="mb-1 block text-[0.6rem] font-bold uppercase tracking-[0.2em] text-muted-foreground">
+                        Retorno
+                      </span>
+                      <span className="text-sm font-semibold text-primary">+9,4%</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="absolute -right-6 -top-6 hidden size-24 border border-primary/30 md:block" />
           </div>
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-            {pillars.map((p) => (
-              <div key={p.title} className="border-l border-border pl-5">
-                <span className="flex size-11 items-center justify-center rounded-full bg-secondary text-primary">
-                  <p.icon className="size-5" />
+
+          {/* Strategy */}
+          <div className="col-span-12 mt-12 grid grid-cols-1 gap-8 border-t border-border pt-16 md:grid-cols-4">
+            <h2 className="font-display text-4xl italic leading-none">
+              Estrategia de
+              <br />
+              inversión
+            </h2>
+            {steps.slice(0, 2).map(([n, t, d]) => (
+              <div key={n} className="space-y-4">
+                <span className="text-[0.6rem] font-bold uppercase tracking-[0.2em] text-primary">
+                  {n} — {t}
                 </span>
-                <h3 className="mt-4 text-sm font-semibold">{p.title}</h3>
-                <p className="mt-2 text-xs leading-relaxed text-muted-foreground">{p.text}</p>
+                <p className="text-sm leading-relaxed text-muted-foreground">{d}</p>
               </div>
             ))}
+            <button
+              type="button"
+              className="group flex w-full items-center justify-between border border-foreground px-6 py-4 transition-all hover:bg-foreground hover:text-background"
+            >
+              <span className="text-[0.65rem] font-bold uppercase tracking-[0.2em]">
+                Ver informe 2026
+              </span>
+              <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
+            </button>
           </div>
-        </div>
-      </section>
-
-      {/* Steps */}
-      <section className="bg-ink text-cream">
-        <div className="mx-auto grid max-w-7xl gap-10 px-6 py-16 lg:grid-cols-[1fr_2.4fr] lg:items-center">
-          <div>
-            <p className="label-eyebrow">Encontrar una propiedad</p>
-            <h2 className="mt-3 font-display text-4xl">nunca fue tan simple</h2>
-          </div>
-          <ol className="grid grid-cols-2 gap-8 sm:grid-cols-3 lg:grid-cols-5">
-            {steps.map((s, i) => (
-              <li key={s.text} className="text-center">
-                <span className="mx-auto flex size-14 items-center justify-center rounded-full border border-cream/25">
-                  <s.icon className="size-5 text-olive-light" />
-                </span>
-                <p className="mt-4 text-sm text-olive-light">{i + 1}</p>
-                <p className="mt-1 text-xs leading-relaxed text-cream/75">{s.text}</p>
-              </li>
-            ))}
-          </ol>
         </div>
       </section>
 
       {/* Properties */}
-      <section id="propiedades" className="bg-background">
-        <div className="mx-auto grid max-w-7xl gap-10 px-6 py-20 lg:grid-cols-[1fr_3fr]">
-          <div>
-            <p className="label-eyebrow">Propiedades destacadas</p>
-            <h2 className="mt-4 font-display text-4xl leading-tight">
-              Oportunidades que te pueden <span className="text-primary">cambiar la vida</span>
-            </h2>
-            <a
-              href="#"
-              className="mt-8 inline-flex items-center gap-2 rounded-full border border-border px-6 py-3 text-sm transition-colors hover:border-primary hover:text-primary"
-            >
-              Ver todas las propiedades <ArrowRight className="size-4" />
-            </a>
+      <section id="propiedades" className="border-t border-border">
+        <div className="mx-auto max-w-7xl px-6 py-20 lg:px-12">
+          <div className="mb-16 grid grid-cols-12 items-end gap-8">
+            <div className="col-span-12 md:col-span-7">
+              <span className="label-eyebrow">Selección — Índice 01/04</span>
+              <h2 className="mt-6 font-display text-6xl leading-[0.9] tracking-tighter md:text-7xl">
+                Activos <span className="italic text-primary">curados.</span>
+              </h2>
+            </div>
+            <div className="col-span-12 md:col-span-5 md:text-right">
+              <p className="text-sm leading-relaxed text-muted-foreground md:ml-auto md:max-w-sm">
+                Cada propiedad pasa por auditoría documental, verificación de precio por metro y
+                análisis de plusvalía a cinco años.
+              </p>
+            </div>
           </div>
-          <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
-            {properties.map((p) => (
-              <article
-                key={p.title}
-                className="group overflow-hidden rounded-md border border-border bg-card transition-shadow hover:shadow-lg"
-              >
-                <div className="relative">
+
+          <div className="grid grid-cols-1 gap-x-12 gap-y-20 md:grid-cols-2 lg:grid-cols-4">
+            {properties.map((p, i) => (
+              <article key={p.ref} className={`group ${i % 2 === 1 ? "lg:translate-y-12" : ""}`}>
+                <div className="relative mb-6 aspect-[3/4] overflow-hidden bg-muted">
                   <img
                     src={p.img}
                     alt={p.title}
                     width={800}
-                    height={600}
+                    height={1066}
                     loading="lazy"
-                    className="h-44 w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="size-full object-cover transition-transform duration-1000 group-hover:scale-105"
                   />
-                  <span className="absolute bottom-2 left-2 rounded-sm bg-primary px-2 py-1 text-[0.6rem] uppercase tracking-widest text-primary-foreground">
+                  <span className="absolute left-4 top-4 bg-background px-3 py-1.5 text-[0.55rem] font-bold uppercase tracking-[0.2em]">
                     {p.tag}
                   </span>
-                  <button
-                    type="button"
-                    aria-label="Guardar propiedad"
-                    className="absolute right-2 top-2 flex size-8 items-center justify-center rounded-full bg-card/90 text-primary"
-                  >
-                    <Heart className="size-4" />
-                  </button>
+                  <span className="absolute right-4 top-4 text-[0.55rem] font-bold uppercase tracking-[0.2em] text-background mix-blend-difference">
+                    Ref. {p.ref}
+                  </span>
                 </div>
-                <div className="p-4">
-                  <h3 className="text-sm font-semibold leading-snug">{p.title}</h3>
-                  <div className="mt-3 flex gap-4 text-xs text-muted-foreground">
-                    <span className="flex items-center gap-1">
-                      <BedDouble className="size-3.5" /> {p.beds}
+                <div className="flex items-baseline justify-between gap-3">
+                  <h3 className="font-display text-2xl italic leading-tight">{p.title}</h3>
+                  <ArrowUpRight className="size-4 shrink-0 text-primary transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                </div>
+                <p className="mt-1 text-[0.6rem] font-bold uppercase tracking-[0.2em] text-muted-foreground">
+                  {p.place}
+                </p>
+                <div className="mt-6 flex items-end justify-between border-t border-border pt-4">
+                  <div className="space-y-1">
+                    <span className="block text-[0.6rem] uppercase tracking-widest text-muted-foreground">
+                      {p.m2}
                     </span>
-                    <span className="flex items-center gap-1">
-                      <Bath className="size-3.5" /> {p.baths}
-                    </span>
-                    <span className="flex items-center gap-1">
-                      <Maximize className="size-3.5" /> {p.m2} m²
-                    </span>
+                    <span className="block text-xs italic">{p.unit}</span>
                   </div>
-                  <p className="mt-4 border-t border-border pt-3 text-sm font-semibold">{p.price}</p>
+                  <span className="font-display text-xl">{p.price}</span>
                 </div>
               </article>
             ))}
@@ -322,53 +286,90 @@ function Index() {
         </div>
       </section>
 
-      {/* Invest + relations */}
-      <section className="grid lg:grid-cols-2">
-        <div className="relative flex items-end p-10 lg:p-14">
+      {/* Method */}
+      <section className="mt-16 bg-ink text-cream lg:mt-24">
+        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-16 px-6 py-24 md:grid-cols-12 lg:px-12">
+          <div className="md:col-span-4">
+            <span className="text-[0.6rem] font-bold uppercase tracking-[0.3em] text-primary">
+              Metodología
+            </span>
+            <h2 className="mt-6 font-display text-5xl italic leading-[0.95]">
+              Transparencia
+              <br />
+              en cada paso.
+            </h2>
+            <p className="mt-6 max-w-sm text-sm leading-relaxed text-cream/60">
+              Un proceso corto, documentado y sin intermediarios innecesarios. Vos decidís, nosotros
+              respondemos por cada dato.
+            </p>
+          </div>
+          <div className="grid gap-12 md:col-span-8 md:grid-cols-2">
+            {steps.map(([n, t, d], i) => (
+              <div key={n} className="border-t border-cream/15 pt-6">
+                <span className="font-display text-4xl text-primary/60">
+                  {["I", "II", "III", "IV"][i]}.
+                </span>
+                <h3 className="mt-4 text-[0.65rem] font-bold uppercase tracking-[0.2em]">{t}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-cream/60">{d}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Investment split */}
+      <section className="grid grid-cols-1 lg:grid-cols-2">
+        <div className="relative flex min-h-[520px] items-end p-10 lg:p-16">
           <img
             src={investImg}
-            alt="Torres corporativas"
-            width={1000}
-            height={800}
+            alt="Torres corporativas al atardecer"
+            width={1200}
+            height={1000}
             loading="lazy"
-            className="absolute inset-0 size-full object-cover"
+            className="absolute inset-0 size-full object-cover grayscale"
           />
           <div className="absolute inset-0 bg-ink/70" />
           <div className="relative max-w-md text-cream">
-            <h2 className="font-display text-3xl leading-tight">
-              Invertir con información cambia el resultado
+            <span className="text-[0.6rem] font-bold uppercase tracking-[0.3em] text-cream/60">
+              Inversión
+            </span>
+            <h2 className="mt-6 font-display text-4xl leading-[0.95]">
+              Invertir con información <span className="italic text-primary">cambia el resultado.</span>
             </h2>
-            <p className="mt-4 text-xs leading-relaxed text-cream/75">
-              Nuestros especialistas y herramientas de inteligencia artificial analizan el mercado
-              para ayudarte a identificar oportunidades con mayor potencial de valorización.
+            <p className="mt-5 text-sm leading-relaxed text-cream/65">
+              Analizamos flujo de capital, obra nueva y absorción por barrio para identificar los
+              activos infravalorados antes que el mercado.
             </p>
             <a
-              href="#"
-              className="mt-7 inline-flex items-center gap-2 rounded-full border border-cream/40 px-6 py-3 text-xs text-cream transition-colors hover:bg-cream hover:text-ink"
+              href="#asesor"
+              className="mt-8 inline-flex items-center gap-3 border border-cream/40 px-7 py-4 text-[0.65rem] font-bold uppercase tracking-[0.2em] transition-colors hover:bg-cream hover:text-ink"
             >
-              Conocer oportunidades de inversión <ArrowRight className="size-4" />
+              Oportunidades de inversión <ArrowRight className="size-4" />
             </a>
           </div>
         </div>
-        <div className="grid items-center gap-8 bg-card p-10 sm:grid-cols-2 lg:p-14">
+
+        <div className="flex flex-col justify-center gap-12 border-l border-border bg-card p-10 lg:p-16">
           <div>
-            <p className="label-eyebrow">Más que operaciones inmobiliarias</p>
-            <h2 className="mt-4 font-display text-3xl leading-tight">
-              Construimos relaciones de largo plazo basadas en confianza, transparencia y
-              resultados.
+            <span className="label-eyebrow">Más que operaciones</span>
+            <h2 className="mt-6 font-display text-4xl leading-[1] tracking-tight">
+              Construimos relaciones de largo plazo basadas en confianza y{" "}
+              <span className="italic text-primary">resultados.</span>
             </h2>
-            <div className="mt-8 flex flex-wrap gap-8">
-              {[
-                ["+1.250", "Clientes satisfechos"],
-                ["+2.800", "Propiedades comercializadas"],
-                ["8", "Años de experiencia"],
-              ].map(([b, s]) => (
-                <div key={s}>
-                  <p className="font-display text-2xl text-primary">{b}</p>
-                  <p className="mt-1 text-xs text-muted-foreground">{s}</p>
-                </div>
-              ))}
-            </div>
+          </div>
+          <div className="grid grid-cols-3 border-t border-border pt-8">
+            {[
+              ["1.250", "Clientes"],
+              ["2.800", "Operaciones"],
+              ["8", "Años"],
+            ].map(([b, s]) => (
+              <div key={s}>
+                <p className="font-display text-4xl">{b}</p>
+                <p className="mt-2 text-[0.6rem] font-bold uppercase tracking-[0.2em] text-muted-foreground">
+                  {s}
+                </p>
+              </div>
+            ))}
           </div>
           <img
             src={agentImg}
@@ -376,51 +377,38 @@ function Index() {
             width={1000}
             height={800}
             loading="lazy"
-            className="h-72 w-full rounded-sm object-cover"
+            className="h-64 w-full object-cover grayscale transition-all duration-1000 hover:grayscale-0"
           />
         </div>
       </section>
 
       {/* CTA */}
-      <section className="bg-ink text-cream">
-        <div className="mx-auto grid max-w-7xl gap-10 px-6 py-16 lg:grid-cols-[1fr_1.4fr] lg:items-center">
-          <div>
-            <h2 className="font-display text-3xl leading-tight">
-              ¿Listo para encontrar <span className="text-olive-light">tu próxima propiedad?</span>
+      <section className="border-t border-border">
+        <div className="mx-auto grid max-w-7xl grid-cols-1 items-end gap-10 px-6 py-24 md:grid-cols-12 lg:px-12">
+          <div className="md:col-span-8">
+            <h2 className="font-display text-6xl leading-[0.9] tracking-tighter md:text-8xl">
+              ¿Listo para su
+              <br />
+              <span className="italic text-primary">próxima propiedad?</span>
             </h2>
-            <p className="mt-4 text-xs leading-relaxed text-cream/75">
-              Nuestro equipo y nuestro asistente inteligente están preparados para ayudarte.
+          </div>
+          <div className="md:col-span-4">
+            <p className="text-sm leading-relaxed text-muted-foreground">
+              Escribinos y en 24 horas recibís una selección hecha a medida por nuestro equipo y el
+              concierge IA.
             </p>
             <a
               href="#asesor"
-              className="mt-7 inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-xs text-primary-foreground"
+              className="mt-8 flex w-full items-center justify-between bg-foreground px-7 py-5 text-[0.65rem] font-bold uppercase tracking-[0.2em] text-background transition-colors hover:bg-primary"
             >
-              Hablar ahora <Phone className="size-4" />
+              Hablar ahora <ArrowRight className="size-4" />
             </a>
           </div>
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {[
-              [MessageCircle, "Respuesta inmediata 24/7 con IA"],
-              [Users, "Asesoramiento personalizado"],
-              [ShieldCheck, "Información clara y actualizada"],
-              [Handshake, "Acompañamiento hasta el final"],
-            ].map(([Icon, t]) => {
-              const I = Icon as typeof MessageCircle;
-              return (
-                <div key={t as string} className="flex items-start gap-3">
-                  <span className="flex size-9 shrink-0 items-center justify-center rounded-full border border-cream/25">
-                    <I className="size-4 text-olive-light" />
-                  </span>
-                  <p className="text-xs leading-relaxed text-cream/75">{t as string}</p>
-                </div>
-              );
-            })}
-          </div>
         </div>
-        <div className="border-t border-cream/10">
-          <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4 px-6 py-6 text-[0.7rem] text-cream/50">
-            <span className="tracking-[0.3em]">NIRA BROKERS</span>
-            <span>© {new Date().getFullYear()} Nira Brokers. Todos los derechos reservados.</span>
+        <div className="border-t border-border">
+          <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4 px-6 py-8 text-[0.6rem] font-bold uppercase tracking-[0.25em] text-muted-foreground lg:px-12">
+            <span>Nira Brokers</span>
+            <span>© {new Date().getFullYear()} — Buenos Aires</span>
           </div>
         </div>
       </section>
